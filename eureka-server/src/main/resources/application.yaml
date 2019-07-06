@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: eureka-server
+  security:  # 安全拦截
+    user:
+      name: root       # 登入账号
+      password: root   # 登入密码
+server:
+  port: 8761
+eureka:
+  client:
+    fetch-registry: false       # 关闭自身服务注册到eureka
+    register-with-eureka: false # 关闭自身服务注册到eureka
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka/  #设置与eureka交互的地址
+
