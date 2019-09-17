@@ -29,4 +29,11 @@ public class SpringCloudController {
         return services;
     }
 
+
+    @GetMapping("ribbon")
+    public String ribbon() {
+
+        return "ribbon";
+    }
+
 }
