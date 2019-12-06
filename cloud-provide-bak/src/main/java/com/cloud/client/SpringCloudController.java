@@ -20,7 +20,12 @@ public class SpringCloudController {
 
 
     @GetMapping("client")
-    public String client() {
+    public String client() throws InterruptedException {
+
+        //模拟请求超时测试熔断
+        System.out.println("睡眠三秒");
+        Thread.sleep(3000);
+
         String services = "Services: " + discoveryClient.getServices() + " port :" + port;
         System.out.println(services);
         return services;
