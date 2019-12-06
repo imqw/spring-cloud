@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @Author: qiuwei@19pay.com.cn
  * @Version 1.0.0
  */
-@FeignClient(value = "eureka-client")
+@FeignClient(value = "eureka-client", fallback = FallbackService.class)
 public interface ConsumerService {
 
     @GetMapping("client")
