@@ -33,25 +33,21 @@ public class ConsumerController {
     @GetMapping("ribbon")
     @HystrixCommand(fallbackMethod = "getRibbonDefaultInfo")
     public String ribbon() throws InterruptedException {
-
         String result = "";
-
+        //定义了一个常量来模拟 超时请求和正常请求
         if (NUM % 2 == 0) {
-
             NUM += 1;
             System.out.println("线程模拟熔断 睡眠3秒");
+            /**
+             * 熔断的默认配置是1s没有响应就算失败  走熔断方法
+             */
             Thread.sleep(3000);
         } else {
             NUM += 1;
             result = restTemplate.getForObject("http://eureka-client/ribbon", String.class);
-
         }
-
-
         System.out.println("当前请求次数 NUM:" + NUM);
-
         return result;
-
     }
 
 
