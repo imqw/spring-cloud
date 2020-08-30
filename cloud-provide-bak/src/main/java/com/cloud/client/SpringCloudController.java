@@ -31,4 +31,15 @@ public class SpringCloudController {
         return services;
     }
 
+
+    @GetMapping("zuul")
+    public String zuul() {
+
+        String services = "zuul 网关测试: Services: " + discoveryClient.getServices() + " port :" + port;
+        System.out.println(services);
+
+        return services;
+    }
+
+
 }

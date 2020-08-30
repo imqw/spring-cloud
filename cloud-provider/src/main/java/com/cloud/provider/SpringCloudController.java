@@ -29,6 +29,15 @@ public class SpringCloudController {
         return services;
     }
 
+    @GetMapping("zuul")
+    public String zuul() throws InterruptedException {
+
+        String services = "zuul 网关测试: Services: " + discoveryClient.getServices() + " port :" + port;
+        System.out.println(services);
+        return services;
+    }
+
+
 
     @GetMapping("ribbon")
     public String ribbon() {
