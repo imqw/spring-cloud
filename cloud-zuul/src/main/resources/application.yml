@@ -1,0 +1,23 @@
+server:
+  port: 10010 #服务端口
+spring:
+  application:
+    name: service-zuul #指定服务名
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka/
+zuul:
+  routes:
+    api-a: # 这里是路由id，随意写
+      path: /provider/** # 这里是映射路径
+#      url: http://127.0.0.1::9002 # 映射路径对应的实际url地址
+      #如果不配置serviceId zuul网关会有个默认配置 service-provider
+      serviceId: provider
+    api-b:
+      path: /consumer/**
+      serviceId: service-consumer
+  prefix: /api  #前缀配置
+
+
