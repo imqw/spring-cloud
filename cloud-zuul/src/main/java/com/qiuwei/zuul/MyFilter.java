@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
+ *
+ * 安全校验 过滤器 模拟认证
+ *
  * @Author: qiuweib@yonyou.com
  * @Date: 2020-08-30.
  */
@@ -86,18 +89,8 @@ public class MyFilter extends ZuulFilter {
                 e.printStackTrace();
             }
         }
-
         LOGGER.info("KO");
-
-
         return null;
     }
 
-
-    public static void main(String[] args) {
-        int token = "www.bao.com".indexOf("token");
-        System.out.println(token);
-
-
-    }
 }
