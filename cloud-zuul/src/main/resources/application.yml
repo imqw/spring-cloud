@@ -14,10 +14,10 @@ zuul:
       path: /provider/** # 这里是映射路径
 #      url: http://127.0.0.1::9002 # 映射路径对应的实际url地址
       #如果不配置serviceId zuul网关会有个默认配置 service-provider
-      serviceId: provider
+      service-id: provider
     api-b:
       path: /consumer/**
-      serviceId: service-consumer
+      service-id: service-consumer
   prefix: /api  #前缀配置
 
 
