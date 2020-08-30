@@ -44,11 +44,19 @@ public class ConsumerController {
             Thread.sleep(3000);
         } else {
             NUM += 1;
-            result = restTemplate.getForObject("http://eureka-client/ribbon", String.class);
+            result = restTemplate.getForObject("http://service-provider/ribbon", String.class);
         }
         System.out.println("当前请求次数 NUM:" + NUM);
         return result;
     }
+
+
+    @GetMapping
+    public String zuul(){
+
+        return this.consumerService.zuul();
+    }
+
 
 
     /**

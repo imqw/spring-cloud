@@ -1,6 +1,6 @@
 spring:
   application:
-    name: eureka-consumer
+    name: service-consumer
 server:
   port: 9102
 eureka:

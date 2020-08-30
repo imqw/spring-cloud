@@ -14,4 +14,9 @@ public class FallbackService implements ConsumerService {
     public String consumer() {
         return "Feign的熔断方法";
     }
+
+    @Override
+    public String zuul() {
+        return "请求provider服务异常";
+    }
 }
